@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import Question from './components/Question';
+import MyChart from "./components/Chart"
+import "antd/dist/antd.css";
+import {Row,Col} from 'antd'
+import {questionsdata} from "./utils/Data"
+import {Button} from 'antd'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Row>
+      <Col
+      span={12}>
+      {questionsdata.map(data=><Question 
+      handleChange={(data)=>console.log("data",data)}
+      data={data}/>)}
+      <div style={{alignItems:"center",display:"flex",backgroundColor:"red"}}>
+      <Button>Submit</Button>
+      <Button>Clear</Button>
+      </div>
+      </Col>
+      <Col span={12}><MyChart/></Col>
+    </Row>
     </div>
   );
 }
