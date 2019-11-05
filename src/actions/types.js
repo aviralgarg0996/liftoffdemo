@@ -1,0 +1,3 @@
+export const SET_ANSWER='SET_ANSWER'
+export const SUBMIT_ANSWER='SUBMIT_ANSWER'
+export const CLEAR_FORM='CLEAR_FORM'
